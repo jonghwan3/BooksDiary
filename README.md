@@ -22,7 +22,7 @@ Before getting started, ensure you have the following prerequisites
 1. [Introduction](#introduction)
 2. [Algorithm](#algorithm)
    
-## Configuration 
+### Configuration 
 1. [CloudFormation](#CloudFormation)
 2. [EC2](#EC2)
 3. [S3 Bucket](#Bucket)
