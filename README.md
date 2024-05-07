@@ -18,9 +18,6 @@ Before getting started, ensure you have the following prerequisites
 - AWS Account : free-tier (minimum)
 - SSH Key Pairs : using ssh-keygen, save public and private keys
 
-## Table of Contents
-1. [Introduction](#introduction)
-2. [Algorithm](#algorithm)
 
 ## Configuration
 1. [CloudFormation](#CloudFormation)
