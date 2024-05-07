@@ -48,8 +48,21 @@ On AWS - S3 Bucket, we will upload all files in `html`
 - On the bucket, upload with Add files (`html/~.html` files)
 - Upload with folders (`html/css`, `html/images`, `html/webfonts`)
 - On the bucket - Properties - Static website hosting - Edit : Index document : `login.html`
-- Edit Bucket Policy : In the Permissions tab of your static content bucket, click on Bucket policy. put * following yourwebsite-static-content on Resource
-
+- Edit Bucket Policy : In the Permissions tab of your static content bucket click on Bucket policy.
+- Use the following template to allow public read access to the static files, replacing "yourwebsite-static-content" with your bucket's actual name:
+```json
+{
+  "Version": "2012-10-17",
+  "Statment": [
+    {
+      "Sid": "PublicReadGetObject",
+      "Effect": "Allow",
+      "Principal": "*",
+      "Action": "s3:GetObject",
+      "Resource": "arn:aws:s3:::yourwebsite-static-content/*"
+    }
+  ]
+```
 ### 4. Lambda functions <a name="lambda"></a>
 
 On AWS - Lambda, we will create `nodejs/~.js` files
