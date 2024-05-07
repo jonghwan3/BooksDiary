@@ -71,8 +71,14 @@ On AWS - Lambda, we will create `nodejs/~.js` files
 - Add a custom layer created by `mongoDB_uuid.zip` to every Lambda functions
 - Add a custom layer created by `stop_word` to `recommendBooks.js` Lambda function.
 - Copy and Paste from `nodejs/~.js` files to Lambda functions (**Do not forget clicking deploy after changes**)
-- On each Lambda function, Configuration - Edit Environment variables. (Key : MONGODB_URI, Value : mongodb://admin:vBTaTtAqabuC4NvV7jm3@{EC2 Ipv4 address}:27017)
-- On `register.js` and `forget.js`, add another Environment variables. (Key : ADMIN_URI, Value : {your email})
+- On each Lambda function, Configuration - Edit Environment variables. Add following Key and Value
+```json
+"MONGODB_URI" : "mongodb://admin:vBTaTtAqabuC4NvV7jm3@{EC2 Ipv4 address}:27017"
+```
+- On `register.js` and `forget.js`, add another Environment variables. 
+```json
+"ADMIN_URI" : "{your email}"
+```
   
 
 ### 5. API Gateway <a name="apigateway"></a>
