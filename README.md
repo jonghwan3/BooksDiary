@@ -19,7 +19,7 @@ Before getting started, ensure you have the following prerequisites
 - SSH Key Pairs : using ssh-keygen, save public and private keys
    
 ## Configuration
-1. [CloudFormation](#cloudFormation)
+1. [CloudFormation](#CloudFormation)
 2. [EC2](#EC2)
 3. [S3 Bucket](#Bucket)
 4. [Lambda functions](#Lambda)
@@ -27,7 +27,7 @@ Before getting started, ensure you have the following prerequisites
 6. [SES](#SES)
 7. [IAM roles](#IAM)
 
-## 1. CloudFormation <a name="cloudFormation"></a>
+### 1. CloudFormation <a name="cloudFormation"></a>
 
 On AWS - CloudFormation, create new stack with new resources.
 - Replace some arguments on `AWS_CloudFormation_debian.yaml` (indicated on comments)
@@ -35,12 +35,12 @@ On AWS - CloudFormation, create new stack with new resources.
 - Enter stack name and click next serveral times and submit with aceepting acknowledgement.
   
 
-## 2. EC2 <a name="EC2"></a>
+### 2. EC2 <a name="EC2"></a>
 
 On AWS - EC2, we can check a new EC2 has been created.
 - Check Public Ipv4 address (e.g., 3.147.47.36)
  
-## 3. S3 Bucket <a name="Bucket"></a>
+### 3. S3 Bucket <a name="Bucket"></a>
 
 On AWS - S3 Bucket, we will upload all files in `html`
 - Create bucket
@@ -49,7 +49,7 @@ On AWS - S3 Bucket, we will upload all files in `html`
 - On the bucket - Properties - Static website hosting - Edit : Index document : `login.html`
 - Edit Bucket Policy : In the Permissions tab of your static content bucket, click on Bucket policy. put * following yourwebsite-static-content on Resource
 
-## 4. Lambda functions <a name="Lambda"></a>
+### 4. Lambda functions <a name="Lambda"></a>
 
 On AWS - Lambda, we will create `nodejs/~.js` files
 - Create functions with Runtime : Node.js 20.x, Architecture : x86_64
@@ -61,7 +61,7 @@ On AWS - Lambda, we will create `nodejs/~.js` files
 - On `register.js` and `forget.js`, add another Environment variables. (Key : ADMIN_URI, Value : {your email})
   
 
-## 5. API Gateway <a name="APIGateway"></a>
+### 5. API Gateway <a name="APIGateway"></a>
 On AWS - API Gateway, create each API mapping to Lambda function
 - Build REST API
 - Create resource with appropriate name (**Enable CORS!**)
@@ -69,12 +69,12 @@ On AWS - API Gateway, create each API mapping to Lambda function
 - For each resource, click **Deploy API** button
 - Invoke URL can be checked in API Gateway - APIs - your API - Stages, which will be used on your html files
 
-## 6. SES <a name="SES"></a>
+### 6. SES <a name="SES"></a>
 On AWS - SES, verify your sender email and recipient email
 - On SES - Configuration - Identities, Click Create Identity, and put your Email address and Create Identity
 - The previous step will give you verification url via email (As Amazon requires you to contact support team about sending emails wihtout registering Identities, we should manually register identities for sending admin email and receiving user emails)
 
-## 7. IAM roles <a name="IAM"></a>
+### 7. IAM roles <a name="IAM"></a>
 We should add permissions for `forget` and `register` lambda function to use sending emails
 - On AWS - IAM - Roles - corresponding Lambda functions - Add **AmazonSESFullAccess** permissions
 - Add permissions AmazonEC2FullAccess and AmazonS3FullAccess for your user
