@@ -5,8 +5,54 @@ Our service helps clients to search books, save books, update comments and ratin
 ### System Architecture
 ![system_architecture](https://github.com/jonghwan3/BooksDiary/assets/97586094/b2197774-16e5-4f48-884f-d99ee322a0e2)
 
-As we have uploaded detailed report and demo already, we will skip detailed explanations here. \
+As we have uploaded detailed report and demo already, we will skip detailed explanations realted those here. \
 However, I will mainly focus on how to configure environments on AWS and how my repository is structured.
+
+# Repository
+
+## Root Directory
+- **README.md**: Main repository documentation.
+- **AWS_CloudFormation_debian.yaml**: Build EC2 server following [CloudFormation](#cloudformation)
+
+## Frontend resources
+All resources here should be uploaded in [S3 Bucket](#bucket)
+- **html/**
+  - **css/**: html styles 
+  - **images/**: background images
+  - **webfonts/**: webfonts
+  - **forget.html**: Forgot password page
+  - **history.html**: User Library page
+  - **login.html**: User Login page
+  - **profile.html**: User profile page
+  - **register.html**: User register page
+  - **search.html**: Book search page
+  
+## Nodejs
+All resources here should be copied and pasted in [Lambda functions](#lambda)
+- **nodejs/**
+  - **deleteBook.js**: delete book in user's library page
+  - **fetchBooks.js**: fetch books in user's library page
+  - **forget.js**: get token for reset password in forgot password page
+  - **login.js**: user login
+  - **logout.js**: user logout
+  - **recommendBooks.js**: recommend books based on saved books in book search page
+  - **register.js**: user register
+  - **reset.js**: reset password in forgot password page
+  - **saveBook.js**: save book in book search page
+  - **saveComment.js**: update comments or ratings in user library page
+  - **updateUser.js**: update user's email information in profile page
+  - **userInfo.js**: get user info in profile page
+
+## Package_json
+All resources here should be uploaded following [Lambda functions](#lambda) instructions
+- **package_json/**
+  - **mongoDB_uuid.zip**: API documentation.
+  - **stop_word.zip**: Guidelines for contributing to the repository.
+---
+
+---
+
+---
 
 # Configuration
 
