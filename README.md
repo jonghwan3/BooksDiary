@@ -12,7 +12,7 @@ However, I will mainly focus on how to configure environments on AWS and how my 
 
 # Repository
 
-This guide will help you understand our codes' struction and thier functions
+This guide will help you understand our codes' structure and thier functions
 
 ## Root Directory
 - **README.md**: Main repository documentation.
