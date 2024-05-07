@@ -6,9 +6,9 @@ Our service helps clients to search books, save books, update comments and ratin
 ![system_architecture](https://github.com/jonghwan3/BooksDiary/assets/97586094/b2197774-16e5-4f48-884f-d99ee322a0e2)
 
 As we have uploaded detailed report and demo already, we will skip detailed explanations here. \
-However, I will mainly focus on how to configure environments on AWS and how to run our service here.
+However, I will mainly focus on how to configure environments on AWS and how my repository is structured.
 
-# Configuration and Running our service
+# Configuration
 
 This guide will explain steps to configure AWS environment.
 
@@ -95,9 +95,9 @@ On AWS - SES, verify your sender email and recipient email
 - The previous step will give you verification url via email (As Amazon requires you to contact support team about sending emails wihtout registering Identities, we should manually register identities for sending admin email and receiving user emails)
 
 ### 7. IAM roles <a name="iam"></a>
-We should add permissions for `forget` and `register` lambda function to use sending emails as well as giving permissions regarding S3 and EC2 Full Access
-- On AWS - IAM - Roles - corresponding Lambda functions - Add **AmazonSESFullAccess** permissions
-- Add permissions AmazonEC2FullAccess and AmazonS3FullAccess for your user
+Add SES permissions to Lambda functions, and add S3 and EC2 permissions to a user
+- On AWS - IAM - Roles - corresponding Lambda functions (`register.js` and `forget.js`) - Add **AmazonSESFullAccess** permissions
+- On AWS - IAM - Users - Add permissions AmazonEC2FullAccess and AmazonS3FullAccess to {your user}
 
 
 
