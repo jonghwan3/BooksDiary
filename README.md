@@ -83,11 +83,11 @@ We should add permissions for `forget` and `register` lambda function to use sen
 - On AWS - IAM - Roles - corresponding Lambda functions - Add **AmazonSESFullAccess** permissions
 - Add permissions AmazonEC2FullAccess and AmazonS3FullAccess for your user
 
-### Introduction <a name="introduction"></a>
+### 1. Introduction <a name="introduction"></a>
 
 Your introduction content goes here.
 
-### Algorithm <a name="algorithm"></a>
+### 2. Algorithm <a name="algorithm"></a>
 
 Your algorithm content goes here.
 
