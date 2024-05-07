@@ -18,15 +18,16 @@ Before getting started, ensure you have the following prerequisites
 - AWS Account : free-tier (minimum)
 - SSH Key Pairs : using ssh-keygen, save public and private keys
    
-## Table of Contents 
-1. [CloudFormation](#CloudFormation)
+## Configuration
+1. [CloudFormation](#cloudFormation)
 2. [EC2](#EC2)
 3. [S3 Bucket](#Bucket)
 4. [Lambda functions](#Lambda)
 5. [API Gateway](#APIGateway)
 6. [SES](#SES)
 7. [IAM roles](#IAM)
-## 1. CloudFormation <a name="CloudFormation"></a>
+
+## 1. CloudFormation <a name="cloudFormation"></a>
 
 On AWS - CloudFormation, create new stack with new resources.
 - Replace some arguments on `AWS_CloudFormation_debian.yaml` (indicated on comments)
