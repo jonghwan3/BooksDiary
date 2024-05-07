@@ -17,7 +17,11 @@ This guide will explain steps to configure AWS environment.
 Before getting started, ensure you have the following prerequisites
 - AWS Account : free-tier (minimum)
 - SSH Key Pairs : using ssh-keygen, save public and private keys
-   
+
+## Table of Contents
+1. [Introduction](#introduction)
+2. [Algorithm](#algorithm)
+
 ## Configuration
 1. [CloudFormation](#CloudFormation)
 2. [EC2](#EC2)
@@ -79,7 +83,13 @@ We should add permissions for `forget` and `register` lambda function to use sen
 - On AWS - IAM - Roles - corresponding Lambda functions - Add **AmazonSESFullAccess** permissions
 - Add permissions AmazonEC2FullAccess and AmazonS3FullAccess for your user
 
+### Introduction <a name="introduction"></a>
 
+Your introduction content goes here.
+
+### Algorithm <a name="algorithm"></a>
+
+Your algorithm content goes here.
 
 
 
