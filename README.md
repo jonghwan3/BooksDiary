@@ -95,7 +95,7 @@ On AWS - SES, verify your sender email and recipient email
 - The previous step will give you verification url via email (As Amazon requires you to contact support team about sending emails wihtout registering Identities, we should manually register identities for sending admin email and receiving user emails)
 
 ### 7. IAM roles <a name="iam"></a>
-We should add permissions for `forget` and `register` lambda function to use sending emails
+We should add permissions for `forget` and `register` lambda function to use sending emails as well as giving permissions regarding S3 and EC2 Full Access
 - On AWS - IAM - Roles - corresponding Lambda functions - Add **AmazonSESFullAccess** permissions
 - Add permissions AmazonEC2FullAccess and AmazonS3FullAccess for your user
 
