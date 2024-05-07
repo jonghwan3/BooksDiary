@@ -17,6 +17,7 @@ This guide will explain steps to configure AWS environment.
 Before getting started, ensure you have the following prerequisites
 - AWS Account : free-tier (minimum)
 - SSH Key Pairs : using ssh-keygen, save public and private keys
+[Jump to Section 2](#section-2)
 
 ## Configuration 
 1. [CloudFormation](#CloudFormation)
@@ -79,6 +80,8 @@ We should add permissions for `forget` and `register` lambda function to use sen
 - Add permissions AmazonEC2FullAccess and AmazonS3FullAccess for your user
 
 
+## Section 2
+Lorem ipsum dolor sit amet...
 
 
 
