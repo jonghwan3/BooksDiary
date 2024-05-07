@@ -10,7 +10,7 @@ However, I will mainly focus on how to configure environments on AWS and how to 
 
 # Configuration and Running our service
 
-This guide will explain steps to configure environment.
+This guide will explain steps to configure AWS environment.
 
 ## Prerequisites
 
