@@ -18,7 +18,7 @@ Before getting started, ensure you have the following prerequisites
 - AWS Account : free-tier (minimum)
 - SSH Key Pairs : using ssh-keygen, save public and private keys
    
-### Configuration 
+## Configuration 
 1. [CloudFormation](#CloudFormation)
 2. [EC2](#EC2)
 3. [S3 Bucket](#Bucket)
