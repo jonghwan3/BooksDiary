@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
+	<link rel="stylesheet" href="css/fontawesome-all.css">
+    <title>Forget</title>
+    <style>
+        .alert {
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translateX(-50%);
+                background-color: #8ee765;
+                color: #1c7b2c;
+                padding: 10px 20px;
+                border: 1px solid #70e170;
+                border-radius: 5px;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        #getToken {
+    width: 30%;
+    height: 46px;
+    font-size: 18px;
+    margin-left: 10px;
+}
+    </style>
+</head>
+<body>
+    <h1>Books Diary</h1>
+	<div class="main">
+		<form class="container" action="#" method="post">
+			<h2>Reset Password Now</h2>
+			<div class="form-style-agile">
+				<label>
+					<i class="fas fa-user"></i>
+					Username
+				</label>
+				<input placeholder="Username" id="username" name="Name" type="text" required="">
+			</div>
+            <div class="form-style-agile">
+				<label>
+					<i class="fas fa-envelope"></i>
+					Email
+				</label>
+				<input placeholder="Email" id="email" name="email" type="text" required="">
+			</div>
+            <div class="form-style-agile">
+				<label>
+					<i class="fa fa-key"></i>
+					Token
+				</label>
+                <div  style="display: flex; align-items: center;">
+                    <input placeholder="Token" id="at" name="at" type="text" required="">
+                    <button type="button" id="getToken" width="30%" height="46px" font-size="18px" margin-left="10px">get token</button>
+                </div>
+			</div>
+            <div class="form-style-agile">
+				<label>
+					<i class="fas fa-unlock-alt"></i>
+					New Password
+				</label>
+				<input placeholder="New Password" id="user-password" name="Password" type="password" required="">
+			</div>
+           
+			<div class="loginbtn">
+				<button type="button" id="loginButton">Submit</button>
+			</div>
+			<div>
+				<p id="loginResult"></p>
+			</div>
+		</form>
+	</div>
+    
+    <script>
+        document.getElementById("getToken").addEventListener("click", function(event) {
+            var username = document.getElementById("username").value;
+			var email = document.getElementById('email').value;
+
+            // Replace url with your API (Refer AWS API Gateway - stages - your API) 
+            // This is for getting token which is used for resetting password
+            fetch('https://plu4co29ig.execute-api.us-east-2.amazonaws.com/login/forget', {
+                method: 'POST',
+                body: JSON.stringify({
+					username: username,
+                    email: email,
+				}),
+                headers:{
+                    'Content-Type': 'application/json',
+                }
+            })
+            .then(response => {
+                if(response.status === 200){
+                    console.log('Success');
+                    
+                }else if(response.status === 401){
+                    document.getElementById("loginResult").textContent = "Username and password is unavailable";
+				    document.getElementById("loginResult").style.color = "red";
+                }else{
+                    document.getElementById("loginResult").textContent = "Get verify token failed!!";
+				    document.getElementById("loginResult").style.color = "red";
+                } 
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                document.getElementById("loginResult").textContent = "Get verify token failed!!";
+				document.getElementById("loginResult").style.color = "red";
+            });
+        });
+
+        document.getElementById("loginButton").addEventListener("click", function(event) {
+            var username = document.getElementById("username").value;
+			var email = document.getElementById('email').value;
+            var verifytoken = document.getElementById('at').value;
+            var password = document.getElementById("user-password").value;
+            // Replace url with your API (Refer AWS API Gateway - stages - your API) 
+            // This is for reset button
+            fetch('https://plu4co29ig.execute-api.us-east-2.amazonaws.com/login/reset', {
+                method: 'POST',
+                body: JSON.stringify({
+					username: username,
+                    email: email,
+                    verifytoken: verifytoken,
+                    password: password,
+				}),
+                headers:{
+                    'Content-Type': 'application/json',
+                }
+            })
+            .then(response => {
+                if(response.status === 200){
+                    console.log('Success');
+					var alertBox = document.createElement('div');
+					alertBox.classList.add('alert');
+					alertBox.textContent = "Password changed!"
+					document.body.appendChild(alertBox);
+
+                    window.location.href = 'login.html';
+                }else if(response.status === 401){
+                    document.getElementById("loginResult").textContent = "Token is incorrect";
+				    document.getElementById("loginResult").style.color = "red";
+                }else{
+                    document.getElementById("loginResult").textContent = "Reset password failed!!";
+				    document.getElementById("loginResult").style.color = "red";
+                } 
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                document.getElementById("loginResult").textContent = "Reset password failed!!";
+				document.getElementById("loginResult").style.color = "red";
+            });
+        });
+    </script>
+</body>
+</html>

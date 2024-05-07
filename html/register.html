@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
+	<link rel="stylesheet" href="css/fontawesome-all.css">
+    <title>Register</title>
+	<style>
+	.alert {
+			position: fixed;
+			top: 50%;
+			left: 50%;
+			transform: translateX(-50%);
+			background-color: #8ee765;
+			color: #1c7b2c;
+			padding: 10px 20px;
+			border: 1px solid #70e170;
+			border-radius: 5px;
+			box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+	}
+	</style>
+</head>
+<body>
+    <h1>Books Diary</h1>
+	<div class="main">
+		<form class="container" action="#" method="post">
+			<h2>Register Now</h2>
+			<div class="form-style-agile">
+				<label>
+					<i class="fas fa-user"></i>
+					Username
+				</label>
+				<input placeholder="Username" id="username" name="Name" type="text" required="">
+			</div>
+			<div class="form-style-agile">
+				<label>
+					<i class="fas fa-unlock-alt"></i>
+					Password
+				</label>
+				<input placeholder="Password" id="user-password" name="Password" type="password" required="">
+			</div>
+            <div class="form-style-agile">
+				<label>
+					<i class="fas fa-envelope"></i>
+					Email
+				</label>
+				<input placeholder="Email" id="email" name="email" type="text" required="">
+			</div>
+			<div class="loginbtn">
+				<button type="button" id="loginButton">register</button>
+			</div>
+			<div>
+				<p id="loginResult"></p>
+			</div>
+		</form>
+	</div>
+    
+    <script>
+        document.getElementById("loginButton").addEventListener("click", function(event) {
+            var username = document.getElementById("username").value;
+			var password = document.getElementById("user-password").value;
+			var email = document.getElementById('email').value;
+
+            // Replace url with your API (Refer AWS API Gateway - stages - your API) 
+            fetch('https://plu4co29ig.execute-api.us-east-2.amazonaws.com/login/register', {
+                method: 'POST',
+                body: JSON.stringify({
+					username: username,
+					password: password,
+                    email: email,
+				}),
+                headers:{
+                    'Content-Type': 'application/json',
+                }
+            })
+            .then(response => {
+                if(response.status === 200){
+                    console.log('Success');
+					var alertBox = document.createElement('div');
+					alertBox.classList.add('alert');
+					alertBox.textContent = "Registration success!"
+					document.body.appendChild(alertBox);
+
+					setTimeout(function() {
+						window.location.href = 'login.html';
+					}, 1000);
+                }else if(response.status === 401){
+                    document.getElementById("loginResult").textContent = "The user name is unavailable.";
+				    document.getElementById("loginResult").style.color = "red";
+                }else{
+                    document.getElementById("loginResult").textContent = "Register failed due to an error.";
+				    document.getElementById("loginResult").style.color = "red";
+                } 
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                document.getElementById("loginResult").textContent = "Register failed due to an error.";
+				document.getElementById("loginResult").style.color = "red";
+            });
+        });
+    </script>
+</body>
+</html>
