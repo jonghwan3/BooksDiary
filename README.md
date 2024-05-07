@@ -2,13 +2,17 @@
 We used AWS to serve our service serverless. \
 Our service helps clients to search books, save books, update comments and ratings, get recommendations and so on. 
 
-### System Architecture
+## System Architecture
 ![system_architecture](https://github.com/jonghwan3/BooksDiary/assets/97586094/b2197774-16e5-4f48-884f-d99ee322a0e2)
 
 As we have uploaded detailed report and demo already, we will skip detailed explanations realted those here. \
 However, I will mainly focus on how to configure environments on AWS and how my repository is structured.
+   
+---
 
 # Repository
+
+This guide will help you understand our codes' struction and thier functions
 
 ## Root Directory
 - **README.md**: Main repository documentation.
@@ -46,11 +50,8 @@ All resources here should be copied and pasted in [Lambda functions](#lambda)
 ## Package_json
 All resources here should be uploaded following [Lambda functions](#lambda) instructions
 - **package_json/**
-  - **mongoDB_uuid.zip**: API documentation.
-  - **stop_word.zip**: Guidelines for contributing to the repository.
----
-
----
+  - **mongoDB_uuid.zip**: mongoDB and uuid libraries used for all Lambda functions
+  - **stop_word.zip**: stopword library used for `recommendBooks.js` Lambda function
 
 ---
 
@@ -62,7 +63,7 @@ This guide will explain steps to configure AWS environment.
 
 Before getting started, ensure you have the following prerequisites
 - AWS Account : free-tier (minimum)
-- SSH Key Pairs : using ssh-keygen, save public and private keys
+- SSH Key Pairs : create public and private keys using ```$ ssh-keygen```, and save (public key will be used in `AWS_CloudFormation_debian.yaml`)
 
 
 ## Configuration
