@@ -1,3 +1,9 @@
+
+
+
+https://github.com/user-attachments/assets/f6df143c-0373-4328-afdb-758fe391073b
+
+
 # Books Diary
 I used AWS to serve our service serverless. \
 Our service helps clients to search books, save books, update comments and ratings, get recommendations and so on. 
