@@ -1,11 +1,11 @@
 # Books Diary
-We used AWS to serve our service serverless. \
+I used AWS to serve our service serverless. \
 Our service helps clients to search books, save books, update comments and ratings, get recommendations and so on. 
 
 ## System Architecture
 ![system_architecture](https://github.com/jonghwan3/BooksDiary/assets/97586094/b2197774-16e5-4f48-884f-d99ee322a0e2)
 
-As we have uploaded detailed report and demo already, we will skip detailed explanations realted those here. \
+As I have uploaded detailed report and demo already, I will skip detailed explanations realted those here. \
 However, I will mainly focus on how to configure environments on AWS and how my repository is structured.
    
 ---
@@ -85,12 +85,12 @@ On AWS - CloudFormation, create new stack with new resources.
 
 ### 2. EC2 <a name="ec2"></a>
 
-On AWS - EC2, we can check a new EC2 has been created.
+On AWS - EC2, I can check a new EC2 has been created.
 - Check Public Ipv4 address (e.g., 3.147.47.36)
  
 ### 3. S3 Bucket <a name="bucket"></a>
 
-On AWS - S3 Bucket, we will upload all files in `html`
+On AWS - S3 Bucket, I will upload all files in `html`
 - Create bucket
 - On the bucket, upload with Add files (`html/~.html` files)
 - Upload with folders (`html/css`, `html/images`, `html/webfonts`)
@@ -112,7 +112,7 @@ On AWS - S3 Bucket, we will upload all files in `html`
 ```
 ### 4. Lambda functions <a name="lambda"></a>
 
-On AWS - Lambda, we will create `nodejs/~.js` files
+On AWS - Lambda, I will create `nodejs/~.js` files
 - Create functions with Runtime : Node.js 20.x, Architecture : x86_64
 - Create two layers on AWS - Lambda - Layers by uploading a .zip file (`package_json/~.zip` individually)
 - Add a custom layer created by `mongoDB_uuid.zip` to every Lambda functions
